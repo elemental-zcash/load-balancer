@@ -1,0 +1,8 @@
+version: '3'
+services:
+  letsencrypt-nginx-proxy-companion:
+    volumes:
+      - acme-staging:/etc/acme.sh
+volumes:
+  acme-staging:
+

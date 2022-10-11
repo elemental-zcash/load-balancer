@@ -1,0 +1,22 @@
+{
+  "name": "@elemental-zcash/acme-service",
+  "version": "0.0.1",
+  "description": "Dockerised ACME service for nginx and mail server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "mkdir nginx-conf nginx-vhost html certs",
+    "init:config": "echo \"LETSENCRYPT_STANDALONE_CERTS=('mail')\nLETSENCRYPT_mail_HOST=('$LE_HOSTNAME')\" > le_config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elemental-zcash/acme-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elemental-zcash/acme-service/issues"
+  },
+  "homepage": "https://github.com/elemental-zcash/acme-service#readme"
+}
