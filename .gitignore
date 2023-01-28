@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+
+### CUSTOM
+certs/
+certs-staging/
+acme/
+acme-staging/
+
+le_config
+nginx-conf/
+vhost/
+
