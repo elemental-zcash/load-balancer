@@ -108,8 +108,8 @@ certs/
 certs-staging/
 acme/
 acme-staging/
+html/
 
 le_config
 nginx-conf/
 vhost/
-
