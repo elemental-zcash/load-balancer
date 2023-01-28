@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init": "mkdir nginx-conf nginx-vhost html certs",
+    "start:prod": "docker compose -f docker-compose.yml -f docker-compose.yml up -d --build",
+    "stop": "docker compose -f docker-compose.yml down",
     "init:config": "echo \"LETSENCRYPT_STANDALONE_CERTS=('mail')\nLETSENCRYPT_mail_HOST=('$LE_HOSTNAME')\" > le_config"
   },
   "repository": {

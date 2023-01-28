@@ -2,7 +2,11 @@ version: '3'
 services:
   letsencrypt-nginx-proxy-companion:
     volumes:
-      - acme-staging:/etc/acme.sh
-volumes:
-  acme-staging:
-
+      - ./acme-staging:/etc/acme.sh
+      - ./certs-staging:/etc/nginx/certs:rw
+    environment:
+      - ACME_CA_URI=https://acme-staging-v02.api.letsencrypt.org/directory
+      - LETSENCRYPT_TEST=true
+      - DEBUG=true
+#volumes:
+#  acme-staging:
