@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init": "mkdir nginx-conf nginx-vhost html certs",
-    "init:config": "echo \"LETSENCRYPT_STANDALONE_CERTS=('mail')\nLETSENCRYPT_mail_HOST=('$LE_HOSTNAME')\" > le_config"
+    "init:config": "echo \"LETSENCRYPT_STANDALONE_CERTS=('mail')\nLETSENCRYPT_mail_HOST=('$LE_HOSTNAME')\" > le_config",
+    "start:local": "docker compose -f docker-compose.yml -f docker-compose.local.yml up --build -d",
+    "start:staging": "docker compose -f docker-compose.yml -f docker-compose.staging.yml up --build",
+    "start:prod": "docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build",
+    "stop": "docker compose -f docker-compose.yml down"
   },
   "repository": {
     "type": "git",

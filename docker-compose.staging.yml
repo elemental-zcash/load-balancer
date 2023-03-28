@@ -1,8 +1,25 @@
-version: '3'
+version: "3"
 services:
   letsencrypt-nginx-proxy-companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    container_name: letsencrypt-nginx-proxy-companion
+    volumes_from:
+      - nginx-proxy
     volumes:
-      - acme-staging:/etc/acme.sh
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./nginx-conf:/etc/nginx/conf.d"
+      - "./nginx-vhost:/etc/nginx/vhost.d"
+      - "./html:/usr/share/nginx/html"
+      - "./certs:/etc/nginx/certs:rw"
+      - "acme-staging:/etc/acme.sh"
+      - "./le_config:/app/letsencrypt_user_data:ro"
+    depends_on: # Make sure we start nginx proxy container first
+      - nginx-proxy
+    environment:
+      - DEFAULT_EMAIL=${ACME_EMAIL}
+      - ACME_CA_URI=https://acme-staging-v02.api.letsencrypt.org/directory
+    networks:
+      - elemental_net
 volumes:
   acme-staging:
-
