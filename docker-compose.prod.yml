@@ -9,16 +9,16 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./nginx-conf:/etc/nginx/conf.d"
-      - "./nginx-vhost:/etc/nginx/vhost.d"
+      - "./vhost:/etc/nginx/vhost.d"
       - "./html:/usr/share/nginx/html"
       - "./certs:/etc/nginx/certs:rw"
-      - "acme:/etc/acme.sh"
+      - "./acme:/etc/acme.sh"
       - "./le_config:/app/letsencrypt_user_data:ro"
     depends_on: # Make sure we start nginx proxy container first
       - nginx-proxy
     environment:
       - DEFAULT_EMAIL=${ACME_EMAIL}
-      - ACME_CA_URI=https://acme-staging-v02.api.letsencrypt.org/directory
+    #  - ACME_CA_URI=https://acme-staging-v02.api.letsencrypt.org/directory
     networks:
       - elemental_net
 networks:
