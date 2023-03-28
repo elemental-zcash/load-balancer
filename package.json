@@ -1,5 +1,5 @@
 {
-  "name": "@elemental-zcash/acme-service",
+  "name": "@elemental-zcash/load-balancer",
   "version": "0.0.1",
   "description": "Dockerised ACME service for nginx and mail server",
   "main": "index.js",
